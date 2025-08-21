@@ -39,7 +39,7 @@ public class TarefaController {
 		return repository.findAll();
 	}
 
-	@PostMapping
+	@PostMapping("/criar")
 	public Tarefa criar(@RequestBody Tarefa tarefa) {
 		return repository.save(tarefa);
 	}
@@ -64,7 +64,7 @@ public class TarefaController {
 	}
 
 	@DeleteMapping(path = { "/{id}" })
-	public ResponseEntity<?> delete(@PathVariable long id) {
+	public ResponseEntity<?> excluir(@PathVariable long id) {
 		var response = repository
 			.findById(id)
 			.map(registro -> 
